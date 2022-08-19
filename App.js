@@ -36,6 +36,6 @@ app.get('/username/*', async (req, res) => {
     })
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log(`Example app listening on port ${port}`)
   })
