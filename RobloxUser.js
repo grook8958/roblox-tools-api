@@ -46,6 +46,15 @@ class RobloxUser {
     }
 
     async getUSMCGroups() {
+        const groupNames = {
+            5656013: 'MP',
+            5656009: 'TECOM',
+            6308363: 'MARSOC (MRTC)',
+            5656027: 'MARSOC (MRR)',
+            6182042: 'MARSOC (MRSG),
+            8217959: 'MARFORCOM (4MD),
+            
+        }
         const USMCgroups = [5656013, 5656009, 6308363, 5656027, 6182042, 8217959, 6451373, 6167040, 6167220, 8418619]
         let groups = ''
         for (const group of USMCgroups) {
