@@ -1,6 +1,6 @@
 const axios = require('axios');
 const noblox = require('noblox.js');
-//RobloUser
+
 class RobloxUser {
     constructor(username) {
         this.username = username;
@@ -66,7 +66,7 @@ class RobloxUser {
         for (const group of USMCgroups) {
             const rank = await noblox.getRankInGroup(group, this.id);
             if (rank > 0) {
-                groups += `- ${groupNames[group]}\n`
+                groups += `${groupNames[group]}, `
             }
         }
 
