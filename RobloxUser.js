@@ -51,12 +51,12 @@ class RobloxUser {
             5656009: 'TECOM',
             6308363: 'MARSOC (MRTC)',
             5656027: 'MARSOC (MRR)',
-            6182042: 'MARSOC (MRSG),
-            8217959: 'MARFORCOM (4MD),
-            6451373: 'MARFORCOM (2MD),
+            6182042: 'MARSOC (MRSG)',
+            8217959: 'MARFORCOM (4MD)',
+            6451373: 'MARFORCOM (2MD)',
             6167040: 'MARFORCOM (1MD)',
-            6167220: 'MARFORCOM (3MAW),
-            8418619: 'MARFORCOM (FORECON),
+            6167220: 'MARFORCOM (3MAW)',
+            8418619: 'MARFORCOM (FORECON)',
             1: 'Divisionless',
             0: 'Civilian'
             
