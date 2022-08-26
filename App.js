@@ -2,7 +2,7 @@ const express = require('express');
 const RobloxUser = require('./RobloxUser');
 const app = express();
 const port = 33000
-
+// GET 
 app.get('/', function(req, res) {
     res.send({
         status: 200,
