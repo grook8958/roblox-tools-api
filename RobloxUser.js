@@ -69,16 +69,18 @@ class RobloxUser {
                 groups += `${groupNames[group]}, `
             }
         }
-
-        if (groups.length <= 0) {
-            groups = 'None';
+        const usmcRank = await noblox.getRankInGroup(5655676, this.id);
+        if (groups.length <= 0 && usmcRank > 0) {
+            groups = groupNames[1] + ' ,';
         }
+        
+        if (usmcRank === 0) groups = groupNames[0] + ' ,';
 
         return groups
     }
 
     async getUSMCRank() {
-        const rank = noblox.getRankNameInGroup(5655676, this.id);
+        const rank = await noblox.getRankNameInGroup(5655676, this.id);
         return rank;
     }
 
