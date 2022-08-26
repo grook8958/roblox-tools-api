@@ -53,6 +53,12 @@ class RobloxUser {
             5656027: 'MARSOC (MRR)',
             6182042: 'MARSOC (MRSG),
             8217959: 'MARFORCOM (4MD),
+            6451373: 'MARFORCOM (2MD),
+            6167040: 'MARFORCOM (1MD)',
+            6167220: 'MARFORCOM (3MAW),
+            8418619: 'MARFORCOM (FORECON),
+            1: 'Divisionless',
+            0: 'Civilian'
             
         }
         const USMCgroups = [5656013, 5656009, 6308363, 5656027, 6182042, 8217959, 6451373, 6167040, 6167220, 8418619]
@@ -60,8 +66,7 @@ class RobloxUser {
         for (const group of USMCgroups) {
             const rank = await noblox.getRankInGroup(group, this.id);
             if (rank > 0) {
-                const Group = await noblox.getGroup(group)
-                groups += `- ${Group.name}`
+                groups += `- ${groupNames[group]\n}`
             }
         }
 
