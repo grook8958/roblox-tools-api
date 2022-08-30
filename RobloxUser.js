@@ -76,7 +76,7 @@ class RobloxUser {
         
         if (usmcRank === 0) groups = groupNames[0] + ' ,';
 
-        return groups.replace(/(,\s)+$/gm, '');
+        return groups.replace(/[,\s]+$/gm, '');
     }
 
     async getUSMCRank() {
