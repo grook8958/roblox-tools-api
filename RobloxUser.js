@@ -16,7 +16,6 @@ class RobloxUser {
         this.pastUsernames = await this.getPastUsernames();
         this.USMCgroups = await this.getUSMCGroups();
         this.USMCrank = await this.getUSMCRank();
-        //WIP
         this.profilePictureURL = `https://www.roblox.com/headshot-thumbnail/image?userId=${encodeURIComponent(this.id)}&width=100&height=100&format=png`
     }
     

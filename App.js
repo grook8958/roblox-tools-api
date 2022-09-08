@@ -1,13 +1,11 @@
 const express = require('express');
 const RobloxUser = require('./RobloxUser');
+const APIResponse = require('./APIResponse');
 const app = express();
 const port = 3000
 // GET 
 app.get('/', function(req, res) {
-    res.send({
-        status: 200,
-        message: "ok"
-    })
+    return new APIResponse(req, res).new(undefined, 200, 'ok');
 })
 
 app.get('/username/*', async (req, res) => {
@@ -21,19 +19,9 @@ app.get('/username/*', async (req, res) => {
             error = err;
         });
     if (error) {
-        return res.header('Access-Control-Allow-Origin', '*').send({
-            status: 403,
-            message: error,
-        })
+        return new APIResponse(req, res).error(403, error);
     }
-    
-    res.header('Access-Control-Allow-Origin', '*').send({
-        status: 200,
-        message: "ok",
-        data: {
-            ...user.toJSON()
-        }
-    })
+    return new APIResponse(req, res).new(user.toJSON(), 200, 'ok');
 });
 
 app.listen(process.env.PORT || port, () => {
