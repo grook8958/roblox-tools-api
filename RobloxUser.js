@@ -57,26 +57,36 @@ class RobloxUser {
             6167040: 'MARFORCOM (1MD)',
             6167220: 'MARFORCOM (3MAW)',
             8418619: 'MARFORCOM (FORECON)',
+            8418619: 'MP (SRT)',
+            6302171: 'MP (MPS)',
             1: 'Divisionless',
             0: 'Civilian'
             
         }
         const USMCgroups = [5656013, 5656009, 6308363, 5656027, 6182042, 8217959, 6451373, 6167040, 6167220, 8418619]
-        let groups = ''
+        let groupsStr = ''
+        const groupsIn = [];
         for (const group of USMCgroups) {
             const rank = await noblox.getRankInGroup(group, this.id);
-            if (rank > 0) {
-                groups += `${groupNames[group]}, `
-            }
-        }
-        const usmcRank = await noblox.getRankInGroup(5655676, this.id);
-        if (groups.length <= 0 && usmcRank > 0) {
-            groups = groupNames[1] + ' ,';
+            if (rank > 0) groupsIn.push(group);
         }
         
-        if (usmcRank === 0) groups = groupNames[0] + ' ,';
+        if (groupsIn.includes(5656013) && (groupsIn.includes(8418619) || groupsIn.includes(6302171))) {
+            groupsIn.splice(groupsIn.indexOf(5656013), 1);
+        }
 
-        return groups.replace(/[,\s]+$/gm, '');
+        for (const group of groupsIn) {
+            groupsStr += `${groupNames[group]}, `
+        }
+
+        const usmcRank = await noblox.getRankInGroup(5655676, this.id);
+        if (groupsStr.length <= 0 && usmcRank > 0) {
+            groupsStr = groupNames[1] + ' ,';
+        }
+        
+        if (usmcRank === 0) groupsStr = groupNames[0] + ' ,';
+
+        return groupsStr.replace(/[,\s]+$/gm, '');
     }
 
     async getUSMCRank() {
