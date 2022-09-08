@@ -1,7 +1,7 @@
 const express = require('express');
 const RobloxUser = require('./RobloxUser');
 const app = express();
-const port = 33000
+const port = 3000
 // GET 
 app.get('/', function(req, res) {
     res.send({
@@ -38,4 +38,4 @@ app.get('/username/*', async (req, res) => {
 
 app.listen(process.env.PORT || port, () => {
     console.log(`Example app listening on port ${port}`)
-  })
+})
