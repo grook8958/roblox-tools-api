@@ -19,7 +19,7 @@ app.get('/username/*', async (req, res) => {
             error = err;
         });
     if (error) {
-        return new APIResponse(req, res).error(403, error);
+        return new APIResponse(req, res).error(400, error);
     }
     return new APIResponse(req, res).new(user.toJSON(), 200, 'ok');
 });
