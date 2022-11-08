@@ -6,7 +6,7 @@ const port = 3000
 // GET 
 app.get('/', function(req, res) {
     return new APIResponse(req, res).new(undefined, 200, 'ok');
-})
+});
 
 app.get('/username/*', async (req, res) => {
     const username = req.url.replace('/username', '').replace('/', '')
