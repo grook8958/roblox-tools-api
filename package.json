@@ -4,7 +4,8 @@
   "description": "",
   "main": "App.js",
   "scripts": {
-    "start": "node App.js"
+    "start": "node App.js",
+    "build": "npm i axios noblox.js express"
   },
   "keywords": [],
   "author": "",
