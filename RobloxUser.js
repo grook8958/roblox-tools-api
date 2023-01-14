@@ -16,7 +16,7 @@ class RobloxUser {
         this.pastUsernames = await this.getPastUsernames();
         this.USMCgroups = await this.getUSMCGroups();
         this.USMCrank = await this.getUSMCRank();
-        this.profilePictureURL = `https://www.roblox.com/headshot-thumbnail/image?userId=${encodeURIComponent(this.id)}&width=100&height=100&format=png`
+        this.profilePictureURL = await this.getHeadShotThumbnail();
     }
     
     async getDisplayName() {
@@ -91,6 +91,11 @@ class RobloxUser {
     async getUSMCRank() {
         const rank = await noblox.getRankNameInGroup(5655676, this.id);
         return rank;
+    }
+
+    async getHeadShotThumbnail() {
+        const data = await noblox.getPlayerThumbnail(this.id, '720x720', 'png', true, 'headshot');
+        return data[0].imageUrl;
     }
 
     toJSON() {
