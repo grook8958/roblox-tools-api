@@ -9,6 +9,7 @@ class RobloxUser {
 
     async search() {
         this.id = await this.getId();
+        console.log(this.id)
         if (this.id === false) {
             throw "Error: Couldn't find the user."
         }
@@ -26,9 +27,9 @@ class RobloxUser {
 
     async getId() {
         const userId = await noblox.getIdFromUsername(this.username).catch(err => {
+            console.error(err)
             return false
         });
-
         return userId;
     }
 
